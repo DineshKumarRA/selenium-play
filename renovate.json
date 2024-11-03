@@ -5,7 +5,7 @@
   "autodiscover": true,
   "packageRules": [
     {
-      "matchManagers": ["bazel", "bazelisk"],
+      "matchManagers": ["bazel", "bazel-module", "bazelisk", "dockerfile", "github-actions"],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
@@ -21,7 +21,7 @@
       "commitMessagePrefix": "[js]"
     },
     {
-      "matchManagers": ["pip_requirements"],
+      "matchManagers": ["pip_requirements", "pip_setup"],
       "commitMessagePrefix": "[py]"
     },
     {
