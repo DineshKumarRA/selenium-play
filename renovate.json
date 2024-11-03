@@ -6,37 +6,30 @@
   "packageRules": [
     {
       "matchManagers": ["bazel", "bazelisk"],
-      "matchDatasources": ["bazel", "bazelisk"],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
       "matchManagers": ["nuget"],
-      "matchDatasources": ["nuget"],
       "commitMessagePrefix": "[dotnet]"
     },
     {
       "matchManagers": ["maven"],
-      "matchDatasources": ["maven"],
       "commitMessagePrefix": "[java]"
     },
     {
       "matchManagers": ["npm"],
-      "matchDatasources": ["npm"],
       "commitMessagePrefix": "[js]"
     },
     {
       "matchManagers": ["pip_requirements"],
-      "matchDatasources": ["pip_requirements"],
       "commitMessagePrefix": "[py]"
     },
     {
       "matchManagers": ["bundler", "ruby-version"],
-      "matchDatasources": ["bundler", "ruby-version"],
       "commitMessagePrefix": "[rb]"
     },
     {
       "matchManagers": ["cargo"],
-      "matchDatasources": ["cargo"],
       "commitMessagePrefix": "[rust]"
     }
   ],
