@@ -5,31 +5,31 @@
   "autodiscover": true,
   "packageRules": [
     {
-      "matchPackageNames": ["bazel", "bazelisk"],
-      "commitMessageSuffix": "[dotnet][java][js][py][rb][rust]"
+      "matchManagers": ["bazel", "bazelisk"],
+      "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
-      "matchPackageNames": ["nuget"],
+      "matchManagers": ["nuget"],
       "commitMessagePrefix": "[dotnet]"
     },
     {
-      "matchPackageNames": ["maven"],
+      "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]"
     },
     {
-      "matchPackageNames": ["npm"],
+      "matchManagers": ["npm"],
       "commitMessagePrefix": "[js]"
     },
     {
-      "matchPackageNames": ["pip_requirements"],
+      "matchManagers": ["pip_requirements"],
       "commitMessagePrefix": "[py]"
     },
     {
-      "matchPackageNames": ["bundler", "ruby-version"],
+      "matchManagers": ["bundler", "ruby-version"],
       "commitMessagePrefix": "[rb]"
     },
     {
-      "matchPackageNames": ["cargo"],
+      "matchManagers": ["cargo"],
       "commitMessagePrefix": "[rust]"
     }
   ],
