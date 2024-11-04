@@ -9,33 +9,53 @@
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
-      "matchManagers": ["nuget"] || "matchPackageNames": [ "rules_dotnet" ],
+      "matchManagers": ["nuget"],
       "commitMessagePrefix": "[dotnet]"
     },
     {
-      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ] || "matchManagers": ["maven"],
+      "matchPackageNames": [ "rules_dotnet" ],
+      "commitMessagePrefix": "[dotnet]"
+    },
+    {
+      "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]"
     },
     {
-      "matchManagers": ["npm"] || "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
+      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
+      "commitMessagePrefix": "[java]"
+    },
+    {
+      "matchManagers": ["npm"],
       "commitMessagePrefix": "[js]"
     },
     {
-      "matchManagers": ["pip_requirements", "pip_setup"] || "matchPackageNames": [ "rules_python" ],
+      "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
+      "commitMessagePrefix": "[js]"
+    },
+    {
+      "matchManagers": ["pip_requirements", "pip_setup"],
       "commitMessagePrefix": "[py]"
     },
     {
-      "matchManagers": ["bundler", "ruby-version"] || "matchPackageNames": [ "rules_ruby" ],
+      "matchPackageNames": [ "rules_python" ],
+      "commitMessagePrefix": "[py]"
+    },
+    {
+      "matchManagers": ["bundler", "ruby-version"],
       "commitMessagePrefix": "[rb]"
     },
     {
-      "matchManagers": ["cargo"] || "matchPackageNames": [ "rules_cc" ],
+      "matchPackageNames": [ "rules_ruby" ],
+      "commitMessagePrefix": "[rb]"
+    },
+    {
+      "matchManagers": ["cargo"],
       "commitMessagePrefix": "[rust]"
     },
     {
-      "matchManagers": ["github-actions"],
-      "commitMessagePrefix": "[github-actions]"
-    }
+      "matchPackageNames": [ "rules_cc" ],
+      "commitMessagePrefix": "[rust]"
+    },
   ],
   "prConcurrentLimit": 5
 }
