@@ -9,27 +9,27 @@
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
-      "matchManagers": ["nuget"],
+      "matchManagers": ["nuget"] || "matchPackageNames": [ "rules_dotnet" ],
       "commitMessagePrefix": "[dotnet]"
     },
     {
-      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*" ],
+      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ] || "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]"
     },
     {
-      "matchManagers": ["npm"],
+      "matchManagers": ["npm"] || "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]"
     },
     {
-      "matchManagers": ["pip_requirements", "pip_setup"],
+      "matchManagers": ["pip_requirements", "pip_setup"] || "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]"
     },
     {
-      "matchManagers": ["bundler", "ruby-version"],
+      "matchManagers": ["bundler", "ruby-version"] || "matchPackageNames": [ "rules_ruby" ],
       "commitMessagePrefix": "[rb]"
     },
     {
-      "matchManagers": ["cargo"],
+      "matchManagers": ["cargo"] || "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]"
     },
     {
