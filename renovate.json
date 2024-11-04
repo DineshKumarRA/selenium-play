@@ -1,74 +1,73 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "labels": ["dependencies"],
   "autodiscover": true,
   "packageRules": [
     {
       "matchManagers": ["bazel", "bazelisk", "bazel-module" ],
       "matchPackageNames": [ "!com.*", "!dev.*", "!io.*", "!it.*", "!net.*", "!org.*", "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]",
-      "labels": ["c-build"]
+      "labels": [ "dependencies", "c-build" ]
     },
     {
       "matchManagers": ["nuget"],
       "commitMessagePrefix": "[dotnet]",
-      "labels": ["c-dotnet"]
+      "labels": [ "dependencies", "c-dotnet" ]
     },
     {
       "matchPackageNames": [ "rules_dotnet" ],
       "commitMessagePrefix": "[dotnet]",
-      "labels": ["c-dotnet"]
+      "labels": [ "dependencies", "c-dotnet" ]
     },
     {
       "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]",
-      "labels": ["c-java"]
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
       "commitMessagePrefix": "[java]",
-      "labels": ["c-java"]
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": ["npm"],
       "commitMessagePrefix": "[js]",
-      "labels": ["c-nodejs"]
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": ["c-nodejs"]
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchManagers": ["pip_requirements", "pip_setup"],
       "commitMessagePrefix": "[py]",
-      "labels": ["c-py"]
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]",
-      "labels": ["c-py"]
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchManagers": ["bundler", "ruby-version"],
       "commitMessagePrefix": "[rb]",
-      "labels": ["c-rb"]
+      "labels": [ "dependencies", "c-rb" ]
     },
     {
       "matchPackageNames": [ "rules_ruby" ],
       "commitMessagePrefix": "[rb]",
-      "labels": ["c-rb"]
+      "labels": [ "dependencies", "c-rb" ]
     },
     {
       "matchManagers": ["cargo"],
       "commitMessagePrefix": "[rust]",
-      "labels": ["c-rust"]
+      "labels": [ "dependencies", "c-rust" ]
     },
     {
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]",
-      "labels": ["c-rust"]
+      "labels": [ "dependencies", "c-rust" ]
     }
   ],
   "prConcurrentLimit": 5,
