@@ -72,6 +72,6 @@
   ],
   "prConcurrentLimit": 5,
   "postUpgradeTasks": {
-    "commands": ["REPIN=1 bazel run @maven//:pin"],
+    "commands": ["REPIN=1 bazel run @maven//:pin"]
   }
 }
