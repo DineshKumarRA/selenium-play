@@ -2,7 +2,7 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "autodiscover": true,
-  "allowedPostUpgradeCommands": [ "^chmod +x scripts/pin-maven.sh$", "scripts/pin-maven.sh" ],
+  "allowedPostUpgradeCommands": [ "^chmod +x ./scripts/pin-maven.sh$", "./scripts/pin-maven.sh" ],
   "packageRules": [
     {
       "matchManagers": ["bazel", "bazelisk", "bazel-module" ],
@@ -75,6 +75,6 @@
   ],
   "prConcurrentLimit": 5,
   "postUpgradeTasks": {
-    "commands": [ "chmod +x scripts/pin-maven.sh" ]
+    "commands": [ "chmod +x ./scripts/pin-maven.sh" ]
   }
 }
