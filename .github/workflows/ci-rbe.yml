@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - trunk
+    branches-ignore:
+      - renovate/*
   workflow_dispatch:
 
 jobs:
