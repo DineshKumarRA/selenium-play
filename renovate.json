@@ -13,7 +13,7 @@
       "commitMessagePrefix": "[dotnet]"
     },
     {
-      "matchRepositories": [ "repo.maven.apache.org", "plugins.gradle.org" ],
+      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*" ],
       "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]"
     },
