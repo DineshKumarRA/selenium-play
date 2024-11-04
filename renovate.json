@@ -13,6 +13,7 @@
       "commitMessagePrefix": "[dotnet]"
     },
     {
+      "matchDepNames": ["maven"],
       "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]"
     },
