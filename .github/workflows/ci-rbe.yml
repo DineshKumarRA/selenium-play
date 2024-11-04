@@ -14,11 +14,11 @@ jobs:
       - name: Repin Dependencies
         run: |
           echo "Branch name: ${github.ref}"
-        if: startsWith(github.ref, 'refs/heads/renovate/')
+        if: contains(github.ref, 'renovate/')
         # run: |
         #   REPIN=1 bazel run @maven//:pin
       - name: Check for changes
-        if: startsWith(github.ref, 'refs/heads/renovate/')
+        if: contains(github.ref, 'renovate/')
         id: commit_changes
         run: |
           git add ./java/maven_install.json
