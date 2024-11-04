@@ -2,11 +2,11 @@ name: CI - RBE
 
 on:
   pull_request:
+    branches-ignore:
+      - renovate/**
   push:
     branches:
       - trunk
-    branches-ignore:
-      - renovate/*
   workflow_dispatch:
 
 jobs:
