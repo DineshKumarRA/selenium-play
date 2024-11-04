@@ -7,55 +7,68 @@
     {
       "matchManagers": ["bazel", "bazelisk", "bazel-module" ],
       "matchPackageNames": [ "!com.*", "!dev.*", "!io.*", "!it.*", "!net.*", "!org.*", "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ],
-      "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
+      "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]",
+      "labels": ["c-build"]
     },
     {
       "matchManagers": ["nuget"],
-      "commitMessagePrefix": "[dotnet]"
+      "commitMessagePrefix": "[dotnet]",
+      "labels": ["c-dotnet"]
     },
     {
       "matchPackageNames": [ "rules_dotnet" ],
-      "commitMessagePrefix": "[dotnet]"
+      "commitMessagePrefix": "[dotnet]",
+      "labels": ["c-dotnet"]
     },
     {
       "matchManagers": ["maven"],
-      "commitMessagePrefix": "[java]"
+      "commitMessagePrefix": "[java]",
+      "labels": ["c-java"]
     },
     {
       "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
-      "commitMessagePrefix": "[java]"
+      "commitMessagePrefix": "[java]",
+      "labels": ["c-java"]
     },
     {
       "matchManagers": ["npm"],
-      "commitMessagePrefix": "[js]"
+      "commitMessagePrefix": "[js]",
+      "labels": ["c-nodejs"]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
-      "commitMessagePrefix": "[js]"
+      "commitMessagePrefix": "[js]",
+      "labels": ["c-nodejs"]
     },
     {
       "matchManagers": ["pip_requirements", "pip_setup"],
-      "commitMessagePrefix": "[py]"
+      "commitMessagePrefix": "[py]",
+      "labels": ["c-py"]
     },
     {
       "matchPackageNames": [ "rules_python" ],
-      "commitMessagePrefix": "[py]"
+      "commitMessagePrefix": "[py]",
+      "labels": ["c-py"]
     },
     {
       "matchManagers": ["bundler", "ruby-version"],
-      "commitMessagePrefix": "[rb]"
+      "commitMessagePrefix": "[rb]",
+      "labels": ["c-rb"]
     },
     {
       "matchPackageNames": [ "rules_ruby" ],
-      "commitMessagePrefix": "[rb]"
+      "commitMessagePrefix": "[rb]",
+      "labels": ["c-rb"]
     },
     {
       "matchManagers": ["cargo"],
-      "commitMessagePrefix": "[rust]"
+      "commitMessagePrefix": "[rust]",
+      "labels": ["c-rust"]
     },
     {
       "matchPackageNames": [ "rules_cc" ],
-      "commitMessagePrefix": "[rust]"
+      "commitMessagePrefix": "[rust]",
+      "labels": ["c-rust"]
     }
   ],
   "prConcurrentLimit": 5
