@@ -71,5 +71,8 @@
       "labels": ["c-rust"]
     }
   ],
-  "prConcurrentLimit": 5
+  "prConcurrentLimit": 5,
+  "postUpgradeTasks": {
+    "commands": ["REPIN=1 bazel run @maven//:pin"],
+  }
 }
