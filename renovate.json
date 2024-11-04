@@ -55,7 +55,7 @@
     {
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]"
-    },
+    }
   ],
   "prConcurrentLimit": 5
 }
