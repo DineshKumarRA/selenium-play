@@ -21,12 +21,14 @@
       "labels": [ "dependencies", "c-dotnet" ]
     },
     {
-      "matchManagers": ["maven"],
+      "matchManagers": [ "bazel", "bazel-module" ],
+      "matchDatasources": ["maven"],
+      "versioning": "maven",
       "commitMessagePrefix": "[java]",
       "labels": [ "dependencies", "c-java" ]
     },
     {
-      "matchPackageNames": [ "com.*", "dev.*", "io.*", "it.*", "net.*", "org.*", "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
+      "matchManagers": ["maven"],
       "commitMessagePrefix": "[java]",
       "labels": [ "dependencies", "c-java" ]
     },
