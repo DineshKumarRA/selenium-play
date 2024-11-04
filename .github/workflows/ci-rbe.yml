@@ -11,15 +11,15 @@ jobs:
   format:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
       - name: Repin Dependencies
+        if: contains(github.ref, 'renovate/')
         run: |
-          echo "Branch name: ${github.ref}"
-        if: contains(github.ref, 'renovate/')
-        # run: |
-        #   REPIN=1 bazel run @maven//:pin
+          REPIN=1 bazel run @maven//:pin
       - name: Check for changes
-        if: contains(github.ref, 'renovate/')
         id: commit_changes
+        if: contains(github.ref, 'renovate/')
         run: |
           git add ./java/maven_install.json
           if git diff --cached --quiet; then
