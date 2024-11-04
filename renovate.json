@@ -6,7 +6,7 @@
   "packageRules": [
     {
       "matchManagers": ["bazel", "bazelisk", "bazel-module" ],
-      "matchPackageNames": [ "!com.*", "!dev.*", "!io.*", "!it.*", "!net.*", "!org.*", "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ]
+      "matchPackageNames": [ "!com.*", "!dev.*", "!io.*", "!it.*", "!net.*", "!org.*", "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]"
     },
     {
