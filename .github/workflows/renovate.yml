@@ -14,17 +14,9 @@ jobs:
         with:
           configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
-  repin:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
       - name: Repin Dependencies
         run: |
           REPIN=1 bazel run @maven//:pin
-
       - name: Commit and push changes
         run: |
           git config --global user.name 'selenium-ci
