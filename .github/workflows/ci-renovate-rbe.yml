@@ -1,0 +1,54 @@
+name: CI - Renovate - RBE
+
+on:
+  push:
+    branches:
+      - renovate/*
+  workflow_dispatch:
+
+jobs:
+  format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Repin Dependencies
+        run: |
+          REPIN=1 bazel run @maven//:pin
+      - name: Check for changes
+        id: commit_changes
+        run: |
+          git add ./java/maven_install.json
+          if git diff --cached --quiet; then
+            echo "::set-output name=code_changes::false"
+          else
+            echo "::set-output name=code_changes::true"
+          fi
+      - name: Commit and push changes
+        if: steps.check-for-changes.outputs.code_changes == 'true'
+        run: |
+          git config --global user.name 'DineshKumarRA'
+          git config --global user.email 'dinesh.asok@gmail.com'
+          git add ./java/maven_install.json
+          git commit -m 'Repin maven dependencies'
+          git push
+          env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Format
+        if: github.repository_owner == 'seleniumhq'
+        uses: ./.github/workflows/bazel.yml
+        with:
+          name: Check format script run
+          caching: false
+          ruby-version: jruby-9.4.8.0
+          run: ./scripts/github-actions/check-format.sh
+
+  test:
+    name: Test
+    if: github.repository_owner == 'seleniumhq'
+    uses: ./.github/workflows/bazel.yml
+    with:
+      name: All RBE tests
+      caching: false
+      ruby-version: jruby-9.4.8.0
+      run: ./scripts/github-actions/ci-build.sh
