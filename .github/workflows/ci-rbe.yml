@@ -2,8 +2,6 @@ name: CI - RBE
 
 on:
   pull_request:
-    branches-ignore:
-      - renovate/**
   push:
     branches:
       - trunk
@@ -12,7 +10,9 @@ on:
 jobs:
   format:
     name: Format
-    if: "github.repository_owner == 'DineshKumarRA' && !contains(github.ref, 'renovate/')"
+    if: >
+      github.repository_owner == 'DineshKumarRA' &&
+      !contains(github.ref, 'renovate/')
     uses: ./.github/workflows/bazel.yml
     with:
       name: Check format script run
@@ -22,7 +22,9 @@ jobs:
 
   test:
     name: Test
-    if: "github.repository_owner == 'seleniumhq' && !contains(github.ref, 'renovate/')"
+    if: >
+      github.repository_owner == 'DineshKumarRA' &&
+      !contains(github.ref, 'renovate/')
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
