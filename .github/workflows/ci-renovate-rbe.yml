@@ -16,23 +16,22 @@ jobs:
         run: |
           REPIN=1 bazel run @maven//:pin
       - name: Check for changes
-        id: commit_changes
         run: |
           git add ./java/maven_install.json
           if git diff --cached --quiet; then
-            echo "::set-output name=code_changes::false"
+            echo "code_changes=false" >> $GITHUB_ENV
           else
-            echo "::set-output name=code_changes::true"
+            echo "code_changes=true" >> $GITHUB_ENV
           fi
       - name: Commit and push changes
-        if: steps.check-for-changes.outputs.code_changes == 'true'
+        if: ${{ env.code_changes }} == 'true'
         run: |
           git config --global user.name 'DineshKumarRA'
           git config --global user.email 'dinesh.asok@gmail.com'
           git add ./java/maven_install.json
           git commit -m 'Repin maven dependencies'
           git push
-          env:
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Format
         if: github.repository_owner == 'seleniumhq'
