@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-bazel run @maven//:pin
+REPIN=1 bazel run @maven//:pin
