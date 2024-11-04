@@ -14,15 +14,3 @@ jobs:
         with:
           configurationFile: renovate.json
           token: ${{ secrets.RENOVATE_TOKEN }}
-      - name: Repin Dependencies
-        run: |
-          REPIN=1 bazel run @maven//:pin
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'DineshKumarRA'
-          git config --global user.email 'dinesh.asok@gmail.com'
-          git add ./java/maven_install.json
-          git commit -m 'Repin maven dependencies'
-          git push
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
