@@ -32,7 +32,7 @@ jobs:
           git commit -m 'Repin maven dependencies'
           git push
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: Format
         if: github.repository_owner == 'seleniumhq'
         uses: ./.github/workflows/bazel.yml
