@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Format
-        run: echo '${{ github.repository_owner }}' '${{ github.ref }}'
+        run: echo '${{ github.repository_owner }} == "DineshKumarRA"' '${{ github.ref }}'
     # if: >
     #   github.repository_owner == 'DineshKumarRA' &&
     #   !contains(github.ref, 'renovate/')
