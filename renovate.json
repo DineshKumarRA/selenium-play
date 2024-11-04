@@ -75,7 +75,7 @@
   ],
   "prConcurrentLimit": 5,
   "postUpgradeTasks": {
-    "commands": [ "chmod +x scripts/pin-maven.sh" ]
-    "fileFilters": [ "**/*.json" ],
+    "commands": [ "chmod +x scripts/pin-maven.sh" ],
+    "fileFilters": [ "**/*.json" ]
   }
 }
