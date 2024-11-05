@@ -9,25 +9,18 @@ on:
 
 jobs:
   format:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Format
-        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ startsWith(github.ref, 'refs/heads/renovate') == true }}"
-    # if: >
-    #   github.repository_owner == 'DineshKumarRA' &&
-    #   !startsWith(github.ref, 'refs/heads/renovate')
-    # uses: ./.github/workflows/bazel.yml
-    # with:
-    #   name: Check format script run
-    #   caching: false
-    #   ruby-version: jruby-9.4.8.0
-    #   run: ./scripts/github-actions/check-format.sh
+    name: Format
+    if: github.repository_owner == 'DineshKumarRA' && startsWith(github.ref, 'refs/heads/renovate') != true
+    uses: ./.github/workflows/bazel.yml
+    with:
+      name: Check format script run
+      caching: false
+      ruby-version: jruby-9.4.8.0
+      run: ./scripts/github-actions/check-format.sh
 
   test:
     name: Test
-    if: >
-      github.repository_owner == 'DineshKumarRA' &&
-      !startsWith(github.ref, 'refs/heads/renovate')
+    if: github.repository_owner == 'DineshKumarRA' && startsWith(github.ref, 'refs/heads/renovate') != true
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
