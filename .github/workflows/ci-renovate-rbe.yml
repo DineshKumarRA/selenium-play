@@ -32,7 +32,7 @@ jobs:
           github_token: ${{ secrets.GIT_TOKEN }}
           branch: ${{ github.ref }}
       - name: Format
-        if: github.repository_owner == 'seleniumhq'
+        if: github.repository_owner == 'DineshKumarRA'
         uses: ./.github/workflows/bazel.yml
         with:
           name: Check format script run
