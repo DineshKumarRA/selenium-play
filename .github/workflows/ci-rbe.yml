@@ -16,9 +16,9 @@ jobs:
       - name: Print condition value
         run: echo "${{ github.repository_owner }}" "${{ github.head_ref }}"
       - name: Print condition value
-        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ startsWith(github.head_ref, 'refs/heads/renovate') != true }}"
+        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ startsWith(github.head_ref, 'renovate/') != true }}"
       - name: Format
-        if: github.repository_owner == 'DineshKumarRA' && startsWith(github.head_ref, 'refs/heads/renovate') != true
+        if: github.repository_owner == 'DineshKumarRA' && startsWith(github.head_ref, 'renovate/') != true
         uses: ./.github/workflows/bazel.yml
         with:
           name: Check format script run
@@ -28,7 +28,7 @@ jobs:
 
   test:
     name: Test
-    if: github.repository_owner == 'seleniumhq' && startsWith(github.head_ref, 'refs/heads/renovate') != true
+    if: github.repository_owner == 'seleniumhq' && startsWith(github.head_ref, 'renovate/') != true
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
