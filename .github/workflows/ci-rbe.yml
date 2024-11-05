@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Format
-        run: echo "${{ !startsWith(github.ref, 'refs/heads/renovate' }}"
+        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ !startsWith(github.ref, 'refs/heads/renovate') }}"
     # if: >
     #   github.repository_owner == 'DineshKumarRA' &&
     #   !startsWith(github.ref, 'refs/heads/renovate')
