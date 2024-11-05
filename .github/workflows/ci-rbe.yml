@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Format
-        run: echo "Condition: ${{ !contains(github.ref, 'renovate/') }}"
+        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ !startsWith(github.ref, 'refs/heads/renovate' }}"
     # if: >
     #   github.repository_owner == 'DineshKumarRA' &&
-    #   !contains(github.ref, 'renovate/')
+    #   !startsWith(github.ref, 'refs/heads/renovate')
     # uses: ./.github/workflows/bazel.yml
     # with:
     #   name: Check format script run
@@ -27,7 +27,7 @@ jobs:
     name: Test
     if: >
       github.repository_owner == 'DineshKumarRA' &&
-      !contains(github.ref, 'renovate/')
+      !startsWith(github.ref, 'refs/heads/renovate')
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
