@@ -21,16 +21,10 @@ jobs:
           if [ -n "$CHANGES" ]; then
             git config --global user.name 'DineshKumarRA'
             git config --global user.email 'dinesh.asok@gmail.com'
-            git add .
+            git add ./java/maven_install.json
             git commit -m 'Repin maven dependencies'
-            echo "code_changes=true" >> $GITHUB_ENV
+            git push
           fi
-      - name: Push changes
-        if: ${{ env.code_changes }} == 'true'
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GIT_TOKEN }}
-          branch: ${{ github.ref }}
   
   check-format:
     needs: format
