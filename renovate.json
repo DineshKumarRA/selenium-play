@@ -28,6 +28,12 @@
       "labels": [ "dependencies", "c-java" ]
     },
     {
+      "matchManagers": [ "bazel-module" ],
+      "matchPackageNames": [ "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
+      "commitMessagePrefix": "[java]",
+      "labels": [ "dependencies", "c-java" ]
+    },
+    {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
       "labels": [ "dependencies", "c-java" ]
