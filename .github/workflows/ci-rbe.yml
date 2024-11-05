@@ -14,11 +14,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
       - name: Print condition value
-        run: echo "${{ github.repository_owner }}" "${{ github.ref }}"
+        run: echo "${{ github.repository_owner }}" "${{ github.head_ref }}"
       - name: Print condition value
-        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ startsWith(github.ref, 'refs/heads/renovate') != true }}"
+        run: echo "${{ github.repository_owner == 'DineshKumarRA' }}" "${{ startsWith(github.head_ref, 'refs/heads/renovate') != true }}"
       - name: Format
-        if: github.repository_owner == 'DineshKumarRA' && startsWith(github.ref, 'refs/heads/renovate') != true
+        if: github.repository_owner == 'DineshKumarRA' && startsWith(github.head_ref, 'refs/heads/renovate') != true
         uses: ./.github/workflows/bazel.yml
         with:
           name: Check format script run
@@ -28,7 +28,7 @@ jobs:
 
   test:
     name: Test
-    if: github.repository_owner == 'DineshKumarRA' && startsWith(github.ref, 'refs/heads/renovate') != true
+    if: github.repository_owner == 'seleniumhq' && startsWith(github.head_ref, 'refs/heads/renovate') != true
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
