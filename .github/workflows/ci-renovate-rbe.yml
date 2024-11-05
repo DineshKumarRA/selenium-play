@@ -31,14 +31,17 @@ jobs:
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
           branch: ${{ github.ref }}
-      - name: Format
-        if: github.repository_owner == 'DineshKumarRA'
-        uses: ./.github/workflows/bazel.yml
-        with:
-          name: Check format script run
-          caching: false
-          ruby-version: jruby-9.4.8.0
-          run: ./scripts/github-actions/check-format.sh
+  
+  check-format:
+    needs: format
+    name: Format
+    if: github.repository_owner == 'DineshKumarRA'
+    uses: ./.github/workflows/bazel.yml
+    with:
+      name: Check format script run
+      caching: false
+      ruby-version: jruby-9.4.8.0
+      run: ./scripts/github-actions/check-format.sh
 
   test:
     name: Test
