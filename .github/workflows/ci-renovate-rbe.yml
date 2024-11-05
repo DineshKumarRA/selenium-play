@@ -36,12 +36,12 @@ jobs:
     needs: format
     name: Format
     if: github.repository_owner == 'DineshKumarRA'
-    uses: ./.github/workflows/bazel.yml
-    with:
-      name: Check format script run
-      caching: false
-      ruby-version: jruby-9.4.8.0
-      run: ./scripts/github-actions/check-format.sh
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Check format script run
+        run: ./scripts/github-actions/check-format.sh
 
   test:
     name: Test
