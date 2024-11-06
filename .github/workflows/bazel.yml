@@ -84,6 +84,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - name: Print
+        run: echo "${{ github.head_ref }}" "${{ startsWith(github.head_ref, 'renovate/') }}" "{{ startsWith(github.head_ref, 'renovate/') == true }}"
       - name: Pull latest changes
         if: startsWith(github.head_ref, 'renovate/') == true
         run: git pull origin ${{ github.head_ref }}
