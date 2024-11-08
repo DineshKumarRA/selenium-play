@@ -21,7 +21,7 @@ jobs:
         run: echo "$(git status -s ./java/maven_install.json) || (git status -s ./rust/Cargo.Bazel.lock)"
       - name: Commit files
         run: |
-          export CHANGES=($(git status -s ./java/maven_install.json) || $(git status -s ./rust/Cargo.Bazel.lock))
+          export CHANGES=$(git diff --name-only HEAD | grep -E '(\.java/maven_install.json|./rust/Cargo.Bazel.lock)')
           echo "$CHANGES"
           if [ -n "$CHANGES" ]; then
             git config --global user.name 'DineshKumarRA'
