@@ -12,23 +12,19 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Get latest commit
-        run: git rev-parse HEAD
       - name: Repin Dependencies
         run: |
           REPIN=1 bazel run @maven//:pin
-          bazel run javascript:pnpm -- -r up --dir $PWD
+      - name: Pring
+        run: echo "$(git status ./java/maven_install.json || git status ./rust/Cargo.Bazel.lock)"
       - name: Commit files
         run: |
-          export CHANGES=$(git status -s)
+          export CHANGES=$(git status ./java/maven_install.json || git status ./rust/Cargo.Bazel.lock)
           if [ -n "$CHANGES" ]; then
             git config --global user.name 'DineshKumarRA'
             git config --global user.email 'dinesh.asok@gmail.com'
             git add ./java/maven_install.json
             git add ./rust/Cargo.Bazel.lock
-            git add ./pnpm-lock.yaml
             git commit -m 'Repin maven dependencies'
             git push
           fi
