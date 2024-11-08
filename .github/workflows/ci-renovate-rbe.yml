@@ -16,12 +16,13 @@ jobs:
         run: |
           REPIN=1 bazel run @maven//:pin
       - name: Print
-        run: echo "${{ git status -s ./java/maven_install.json }}" "${{ git status -s ./rust/Cargo.Bazel.lock }}"
+        run: echo "$(git status -s ./java/maven_install.json)" "$(git status -s ./rust/Cargo.Bazel.lock)"
       - name: Print value
-        run: echo "${{git status -s ./java/maven_install.json || git status -s ./rust/Cargo.Bazel.lock}}"
+        run: echo "$(git status -s ./java/maven_install.json) || (git status -s ./rust/Cargo.Bazel.lock)"
       - name: Commit files
         run: |
-          export CHANGES=${{ git status -s ./java/maven_install.json || git status -s ./rust/Cargo.Bazel.lock }}
+          export CHANGES=($(git status -s ./java/maven_install.json) || $(git status -s ./rust/Cargo.Bazel.lock))
+          echo "$CHANGES"
           if [ -n "$CHANGES" ]; then
             git config --global user.name 'DineshKumarRA'
             git config --global user.email 'dinesh.asok@gmail.com'
