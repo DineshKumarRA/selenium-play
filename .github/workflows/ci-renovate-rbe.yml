@@ -16,6 +16,7 @@ jobs:
         if: startsWith(github.event.head_commit.message, '[dotnet][java]') != true
         run: |
           REPIN=1 bazel run @maven//:pin
+          CARGO_BAZEL_REPIN=true bazel sync --only=crates
       - name: Commit files
         run: |
           export CHANGES=$(git diff --name-only HEAD | grep -E '(\.java/maven_install.json|./rust/Cargo.Bazel.lock)')
