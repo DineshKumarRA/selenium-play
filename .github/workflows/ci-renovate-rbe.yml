@@ -20,13 +20,12 @@ jobs:
         run: bazel run javascript:pnpm -- -r up --dir $PWD
       - name: Commit files
         run: |
-          export CHANGES=$(git diff --name-only HEAD | grep -E '(\.java/maven_install.json|./rust/Cargo.Bazel.lock)')
-          echo "$CHANGES"
-          if [ -n "$CHANGES" ]; then
+          if git diff --name-only | grep -qE '^(.java/maven_install.json|./rust/Cargo.Bazel.lock|./pnpm-lock.yaml)$'; then
             git config --global user.name 'DineshKumarRA'
             git config --global user.email 'dinesh.asok@gmail.com'
             git add ./java/maven_install.json
             git add ./rust/Cargo.Bazel.lock
+            git add ./pnpm-lock.yaml
             git commit -m 'Repin maven dependencies'
             git push
           fi
