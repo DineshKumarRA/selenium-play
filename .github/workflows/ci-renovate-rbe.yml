@@ -19,10 +19,11 @@ jobs:
       - name: PNPM Dependencies
         run: bazel run javascript:pnpm -- -r up --dir $PWD
       - name: Print
-        run: echo "git diff --name-only | grep -qE '^(.java/maven_install.json|./rust/Cargo.Bazel.lock|./pnpm-lock.yaml)$'"
+        run: echo "$(git diff --name-only | grep -qE '^(.java/maven_install.json|./rust/Cargo.Bazel.lock|./pnpm-lock.yaml)$')"
       - name: Commit files
         run: |
-          if git diff --name-only | grep -qE '^(.java/maven_install.json|./rust/Cargo.Bazel.lock|./pnpm-lock.yaml)$'; then
+          export CHANGES=$(git diff --name-only | grep -E '(.java/maven_install.json|./rust/Cargo.Bazel.lock|./pnpm-lock.yaml))')
+          if [ -n "$CHANGES" ]; then
             git config --global user.name 'DineshKumarRA'
             git config --global user.email 'dinesh.asok@gmail.com'
             git add ./java/maven_install.json
