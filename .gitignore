@@ -127,6 +127,7 @@ bazel-bin
 bazel-genfiles
 bazel-out
 bazel-selenium
+bazel-selenium-play
 bazel-testlogs
 MODULE.bazel.lock
 
