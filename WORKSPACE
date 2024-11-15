@@ -12,10 +12,10 @@ http_archive(
     patches = [
         "//javascript:rules_closure_shell.patch",
     ],
-    sha256 = "d66deed38a0bb20581c15664f0ab62270af5940786855c7adc3087b27168b529",
-    strip_prefix = "rules_closure-0.11.0",
+    sha256 = "70ef2b4da987bf0d266e663d7c251eac509ff70dd65bba02d41d1e86e840a569",
+    strip_prefix = "rules_closure-0.13.0",
     urls = [
-        "https://github.com/bazelbuild/rules_closure/archive/0.11.0.tar.gz",
+        "https://github.com/bazelbuild/rules_closure/archive/0.13.0.tar.gz",
     ],
 )
 
