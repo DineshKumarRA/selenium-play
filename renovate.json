@@ -8,35 +8,30 @@
       "matchPackageNames": [ "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ],
       "matchDatasources": [ "!maven" ],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]",
-      "labels": [ "dependencies", "c-build" ],
-      "groupName": "Bazel dependencies"
+      "labels": [ "dependencies", "c-build" ]
     },
     {
       "matchManagers": [ "nuget" ],
       "commitMessagePrefix": "[dotnet]",
-      "labels": [ "dependencies", "c-dotnet" ],
-      "groupName": ".Net dependencies"
+      "labels": [ "dependencies", "c-dotnet" ]
     },
     {
       "matchPackageNames": [ "rules_dotnet" ],
       "commitMessagePrefix": "[dotnet]",
-      "labels": [ "dependencies", "c-dotnet" ],
-      "groupName": ".Net dependencies"
+      "labels": [ "dependencies", "c-dotnet" ]
     },
     {
       "matchManagers": [ "bazel", "bazel-module" ],
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "groupName": "Java dependencies"
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "bazel-module" ],
       "matchPackageNames": [ "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "groupName": "Java dependencies"
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "maven" ],
@@ -47,50 +42,42 @@
     {
       "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "groupName": "NodeJs dependencies"
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "groupName": "NodeJs dependencies"
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ],
-      "groupName": "Python dependencies"
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ],
-      "groupName": "Python dependencies"
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchManagers": [ "bundler", "ruby-version" ],
       "commitMessagePrefix": "[rb]",
-      "labels": [ "dependencies", "c-rb" ],
-      "groupName": "Ruby dependencies"
+      "labels": [ "dependencies", "c-rb" ]
     },
     {
       "matchPackageNames": [ "rules_ruby" ],
       "commitMessagePrefix": "[rb]",
-      "labels": [ "dependencies", "c-rb" ],
-      "groupName": "Ruby dependencies"
+      "labels": [ "dependencies", "c-rb" ]
     },
     {
       "matchManagers": [ "cargo" ],
       "commitMessagePrefix": "[rust]",
-      "labels": [ "dependencies", "c-rust" ],
-      "groupName": "Rust dependencies"
+      "labels": [ "dependencies", "c-rust" ]
     },
     {
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]",
-      "labels": [ "dependencies", "c-rust" ],
-      "groupName": "Rust dependencies"
+      "labels": [ "dependencies", "c-rust" ]
     }
   ],
   "prConcurrentLimit": 5
