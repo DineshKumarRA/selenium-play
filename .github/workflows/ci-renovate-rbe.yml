@@ -17,7 +17,7 @@ jobs:
       - name: Rust Repin Dependencies
         run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
       - name: PNPM Repin Dependencies
-        run: pnpm install
+        run: bazel run javascript:pnpm -- install my-amazing-dep --dir $PWD
       - name: Commit files
         run: |
           export CHANGES=$(git status -s)
