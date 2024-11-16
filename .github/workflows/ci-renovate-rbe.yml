@@ -13,11 +13,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
       - name: Repin Dependencies
-        run: REPIN=1 bazel run @maven//:pin
-      - name: Rust Repin Dependencies
-        run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
-      - name: PNPM Repin Dependencies
-        run: bazel run javascript:pnpm -- install my-amazing-dep --dir $PWD
+        run: |
+          REPIN=1 bazel run @maven//:pin
+          CARGO_BAZEL_REPIN=true bazel sync --only=crates
       - name: Commit files
         run: |
           export CHANGES=$(git status -s)
