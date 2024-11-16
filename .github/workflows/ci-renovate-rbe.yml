@@ -16,6 +16,8 @@ jobs:
         run: REPIN=1 bazel run @maven//:pin
       - name: Rust Repin Dependencies
         run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
+      - name: PNPM Repin Dependencies
+        run: pnpm install
       - name: Commit files
         run: |
           export CHANGES=$(git status -s)
