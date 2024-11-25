@@ -12,11 +12,13 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-      - name: Repin Dependencies
-        run: |
-          REPIN=1 bazel run @maven//:pin
-          CARGO_BAZEL_REPIN=true bazel sync --only=crates
-      - name: Update pnpm lock file
+      - name: java - Update cargo.bazel lock file
+        if: contains(join(github.event.commits.*.message), '[java]')
+        run: REPIN=1 bazel run @maven//:pin
+      - name: rust - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[rust]')
+        run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
+      - name: js - Update pnpm lock file
         if: contains(join(github.event.commits.*.message), '[js]')
         run: bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only
       - name: Commit files
@@ -26,7 +28,7 @@ jobs:
             git config --local user.email "dinesh.asok@gmail.com"
             git config --local user.name "DineshKumarRA"
             git add .
-            git commit -m 'Repin maven dependencies'
+            git commit -m 'Repin dependencies/update lock files'
             git push
           fi
   
