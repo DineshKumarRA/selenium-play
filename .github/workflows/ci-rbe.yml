@@ -9,6 +9,28 @@ on:
 
 jobs:
   format:
+    runs-on: ubuntu-latest
+    if: contains(github.ref, 'renovate/') || contains(github.head_ref, 'renovate/')
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: java - Update cargo.bazel lock file
+        if: contains(join(github.event.commits.*.message), '[java]')
+        run: REPIN=1 bazel run @maven//:pin
+      - name: rust - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[rust]')
+        run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
+      - name: js - Update pnpm lock file
+        if: contains(join(github.event.commits.*.message), '[js]')
+        run: bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only
+      - name: Commit files
+        run: |
+          export CHANGES=$(git status -s)
+          if [ -n "$CHANGES" ]; then
+            git config --local user.email "dinesh.asok@gmail.com"
+            git config --local user.name "DineshKumarRA
+  
+  check-format:
     name: Format
     if: github.repository_owner == 'DineshKumarRA' && startsWith(github.head_ref, 'renovate/') != true
     uses: ./.github/workflows/bazel.yml
