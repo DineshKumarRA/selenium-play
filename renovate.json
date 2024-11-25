@@ -44,7 +44,10 @@
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ],
       "postUpgradeTasks": {
-        "commands": ["bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"]
+        "commands": [
+          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
+        ],
+        "fileFilters": ["**/**"]
       }
     },
     {
@@ -52,7 +55,10 @@
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ],
       "postUpgradeTasks": {
-        "commands": ["bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"]
+        "commands": [
+          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
+        ],
+        "fileFilters": ["**/**"]
       }
     },
     {
