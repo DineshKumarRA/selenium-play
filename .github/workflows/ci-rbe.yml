@@ -28,7 +28,11 @@ jobs:
           export CHANGES=$(git status -s)
           if [ -n "$CHANGES" ]; then
             git config --local user.email "dinesh.asok@gmail.com"
-            git config --local user.name "DineshKumarRA
+            git config --local user.name "DineshKumarRA"
+            git add .
+            git commit -m 'Repin dependencies/update lock files'
+            git push
+          fi
   
   check-format:
     name: Format
