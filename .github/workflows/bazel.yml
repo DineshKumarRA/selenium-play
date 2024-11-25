@@ -83,10 +83,10 @@ jobs:
       - name: Checkout source tree
         uses: actions/checkout@v4
       - name: Print
-        run: echo '${{ github.ref }}'
+        run: echo '${{ github.ref || github.head_ref }}'
       - name: Pull latest changes
-        if: contains(github.ref, 'renovate/')
-        run: git pull origin ${{ github.ref }}
+        if: contains(github.ref, 'renovate/') || contains(github.head_ref, 'renovate/')
+        run: git pull origin ${{ github.ref || github.head_ref }}
       - name: Free space
         if: inputs.os != 'windows'
         run: ./scripts/github-actions/free-disk-space.sh
