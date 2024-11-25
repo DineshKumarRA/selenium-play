@@ -42,24 +42,12 @@
     {
       "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
