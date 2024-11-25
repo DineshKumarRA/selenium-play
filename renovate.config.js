@@ -3,7 +3,7 @@ module.exports = {
   repositories: ["DineshKumarRA/selenium-play"],
   allowPostUpgradeCommandTemplating: true,
   allowedPostUpgradeCommands: [
-    "^bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only$"
+    "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
   ],
   trustLevel: "high"
 };
