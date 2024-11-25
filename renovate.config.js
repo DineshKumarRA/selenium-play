@@ -5,6 +5,7 @@ module.exports = {
   allowedPostUpgradeCommands: [
     "^bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only$"
   ],
+  onboardingConfigFileName: renovate.json,
   trustLevel: "high",
   // logLevel: "debug",
   // logFile: "/var/log/renovate-bot.log",
