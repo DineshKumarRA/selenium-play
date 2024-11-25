@@ -82,6 +82,10 @@ jobs:
     steps:
       - name: Checkout source tree
         uses: actions/checkout@v4
+      - name: Print 1
+        run: echo '${{ github.repository_owner }}'
+      - name: Print 2
+        run: echo '${{ github.head_ref }}'
       - name: Pull latest changes
         if: github.repository_owner == 'DineshKumarRA' && startsWith(github.head_ref, 'renovate/')
         run: git pull origin ${{ github.head_ref }}
