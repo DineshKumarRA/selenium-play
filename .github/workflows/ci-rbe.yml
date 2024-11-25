@@ -23,6 +23,9 @@ jobs:
       - name: js - Update pnpm lock file
         if: contains(join(github.event.commits.*.message), '[js]')
         run: bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only
+      - name: dotnet - Update paket file
+        if: contains(join(github.event.commits.*.message), '[dotnet]')
+        run: ./dotnet/update-deps.sh
       - name: Commit files
         run: |
           export CHANGES=$(git status -s)
