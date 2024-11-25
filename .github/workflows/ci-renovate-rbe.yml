@@ -16,6 +16,9 @@ jobs:
         run: |
           REPIN=1 bazel run @maven//:pin
           CARGO_BAZEL_REPIN=true bazel sync --only=crates
+      - name: Update pnpm lock file
+        if: contains(join(github.event.commits.*.message), '[js]')
+        run: bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only
       - name: Commit files
         run: |
           export CHANGES=$(git status -s)
