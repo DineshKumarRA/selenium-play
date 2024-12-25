@@ -83,7 +83,7 @@ jobs:
       - name: Checkout source tree
         uses: actions/checkout@v4
       - name: Pull latest changes
-        if: startsWith(github.head_ref, 'renovate/')
+        if: contains(github.head_ref, 'renovate/')
         run: git pull
       - name: Free space
         if: inputs.os != 'windows'
