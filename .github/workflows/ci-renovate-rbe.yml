@@ -32,8 +32,8 @@ jobs:
         run: |
           export CHANGES=$(git status -s)
           if [ -n "$CHANGES" ]; then
-            git config --local user.email "selenium-ci@users.noreply.github.com"
-            git config --local user.name "Selenium CI Bot"
+            git config --local user.email "bot@renovateapp.com"
+            git config --local user.name "Renovate Bot"
             git add .
             git commit -m 'Repin dependencies'
             git push
