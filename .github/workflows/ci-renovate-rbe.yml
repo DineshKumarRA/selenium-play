@@ -9,7 +9,7 @@ on:
 jobs:
   format:
     runs-on: ubuntu-latest
-    if: github.repository_owner == 'seleniumhq'
+    if: github.repository_owner == 'DineshKumarRA'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -42,7 +42,7 @@ jobs:
   check-format:
     needs: format
     name: Check format
-    if: github.repository_owner == 'seleniumhq'
+    if: github.repository_owner == 'DineshKumarRA'
     uses: ./.github/workflows/bazel.yml
     with:
       name: Check format script run
