@@ -1,6 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
+  "allowedPostUpgradeCommands": [
+    "^REPIN=1 bazel run @maven//:pin",
+    "^bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only",
+    "^CARGO_BAZEL_REPIN=true bazel sync --only=crates",
+    "^bazel run //py:requirements.update"
+  ],
   "packageRules": [
     {
       "matchManagers": [ "bazel", "bazel-module", "bazelisk" ],
@@ -24,38 +30,80 @@
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "REPIN=1 bazel run @maven//:pin"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "bazel-module" ],
       "matchPackageNames": [ "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "REPIN=1 bazel run @maven//:pin"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "REPIN=1 bazel run @maven//:pin"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ]
+      "labels": [ "dependencies", "c-nodejs" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ]
+      "labels": [ "dependencies", "c-nodejs" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ]
+      "labels": [ "dependencies", "c-py" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run //py:requirements.update"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ]
+      "labels": [ "dependencies", "c-py" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run //py:requirements.update"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "bundler", "ruby-version" ],
@@ -70,12 +118,24 @@
     {
       "matchManagers": [ "cargo" ],
       "commitMessagePrefix": "[rust]",
-      "labels": [ "dependencies", "c-rust" ]
+      "labels": [ "dependencies", "c-rust" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "CARGO_BAZEL_REPIN=true bazel sync --only=crates"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]",
-      "labels": [ "dependencies", "c-rust" ]
+      "labels": [ "dependencies", "c-rust" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "CARGO_BAZEL_REPIN=true bazel sync --only=crates"
+        ],
+        "fileFilters": ["**/**"]
+      }
     }
   ],
   "prConcurrentLimit": 10
