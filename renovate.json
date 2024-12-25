@@ -1,6 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
+  "extends": [
+    "github>selenium-play/config.js"
+  ],
   "allowedPostUpgradeCommands": [
     "^REPIN=1 bazel run @maven//:pin",
     "^bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only",
