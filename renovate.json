@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>selenium-play/config.js"
+    "github>DineshKumarRA/selenium-play/config.js"
   ],
   "allowedPostUpgradeCommands": [
     "^REPIN=1 bazel run @maven//:pin",
