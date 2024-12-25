@@ -1,12 +1,15 @@
 name: CI - Renovate - RBE
+
 on:
   push:
     branches:
       - renovate/*
   workflow_dispatch:
+
 jobs:
   format:
     runs-on: ubuntu-latest
+    if: github.repository_owner == 'seleniumhq'
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -29,23 +32,24 @@ jobs:
         run: |
           export CHANGES=$(git status -s)
           if [ -n "$CHANGES" ]; then
-            git config --local user.email "dinesh.asok@gmail.com"
-            git config --local user.name "DineshKumarRA"
+            git config --local user.email "selenium-ci@users.noreply.github.com"
+            git config --local user.name "Selenium CI Bot"
             git add .
-            git commit -m 'Repin dependencies/update lock files'
+            git commit -m 'Repin dependencies'
             git push
           fi
-  
+
   check-format:
     needs: format
-    name: Format
-    if: github.repository_owner == 'DineshKumarRA'
+    name: Check format
+    if: github.repository_owner == 'seleniumhq'
     uses: ./.github/workflows/bazel.yml
     with:
       name: Check format script run
       caching: false
       ruby-version: jruby-9.4.8.0
       run: ./scripts/github-actions/check-format.sh
+
   test:
     name: Test
     if: github.repository_owner == 'seleniumhq'

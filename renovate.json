@@ -1,10 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
-  "autodiscover": true,
+  "extends": ["config:recommended"],
   "packageRules": [
     {
-      "matchManagers": [ "bazel", "bazelisk", "bazel-module" ],
+      "matchManagers": [ "bazel", "bazel-module", "bazelisk" ],
       "matchPackageNames": [ "!rules_java", "!rules_jvm_external", "!contrib_rules_jvm", "!rules_dotnet", "!aspect_rules_js", "!aspect_rules_ts", "!rules_nodejs", "!rules_python", "!rules_ruby", "!rules_cc" ],
       "matchDatasources": [ "!maven" ],
       "commitMessagePrefix": "[dotnet][java][js][py][rb][rust]",
@@ -36,30 +35,17 @@
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "groupName": "Java dependencies"
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
@@ -92,5 +78,5 @@
       "labels": [ "dependencies", "c-rust" ]
     }
   ],
-  "prConcurrentLimit": 5
+  "prConcurrentLimit": 10
 }
