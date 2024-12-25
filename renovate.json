@@ -3,12 +3,6 @@
   "extends": [
     "github>DineshKumarRA/selenium-play:renovate-config"
   ],
-  "allowedPostUpgradeCommands": [
-    "^REPIN=1 bazel run @maven//:pin",
-    "^bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only",
-    "^CARGO_BAZEL_REPIN=true bazel sync --only=crates",
-    "^bazel run //py:requirements.update"
-  ],
   "packageRules": [
     {
       "matchManagers": [ "bazel", "bazel-module", "bazelisk" ],
