@@ -1,8 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>DineshKumarRA/selenium-play:renovate-config"
-  ],
+  "extends": [ "config:recommended" ],
   "packageRules": [
     {
       "matchManagers": [ "bazel", "bazel-module", "bazelisk" ],
