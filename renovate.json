@@ -1,7 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "github>DineshKumarRA/selenium-play:renovate-config"
+    "local>DineshKumarRA/selenium-play:renovate-config"
   ],
   "packageRules": [
     {
