@@ -27,7 +27,7 @@
       "labels": [ "dependencies", "c-java" ],
       "postUpgradeTasks": {
         "commands": [
-          "./scripts/pin-maven.sh"
+          "REPIN=1 bazel run @maven//:pin"
         ],
         "fileFilters": ["**/**"]
       }
@@ -39,7 +39,7 @@
       "labels": [ "dependencies", "c-java" ],
       "postUpgradeTasks": {
         "commands": [
-          "./scripts/pin-maven.sh"
+          "REPIN=1 bazel run @maven//:pin"
         ],
         "fileFilters": ["**/**"]
       }
@@ -50,7 +50,7 @@
       "labels": [ "dependencies", "c-java" ],
       "postUpgradeTasks": {
         "commands": [
-          "./scripts/pin-maven.sh"
+          "REPIN=1 bazel run @maven//:pin"
         ],
         "fileFilters": ["**/**"]
       }
