@@ -62,12 +62,24 @@
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ]
+      "labels": [ "dependencies", "c-py" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run //py:requirements.update"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ]
+      "labels": [ "dependencies", "c-py" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run //py:requirements.update"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "bundler", "ruby-version" ],
