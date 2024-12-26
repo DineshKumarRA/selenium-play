@@ -24,18 +24,36 @@
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "./scripts/pin-maven.sh"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "bazel-module" ],
       "matchPackageNames": [ "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "./scripts/pin-maven.sh"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ]
+      "labels": [ "dependencies", "c-java" ],
+      "postUpgradeTasks": {
+        "commands": [
+          "./scripts/pin-maven.sh"
+        ],
+        "fileFilters": ["**/**"]
+      }
     },
     {
       "matchManagers": [ "npm" ],
