@@ -1,4 +1,4 @@
-name: CI
+name: Renovate
 
 on:
   workflow_dispatch:
