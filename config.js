@@ -15,6 +15,8 @@ module.exports = {
     '^sudo mv bazel-archive-keyring.gpg \/usr\/share\/keyrings\/$',
     '^echo "deb \[signed-by=\/usr\/share\/keyrings\/bazel-archive-keyring.gpg\] https:\/\/storage.googleapis.com\/bazel-apt stable jdk1.8" \| sudo tee \/etc\/apt\/sources.list.d\/bazel.list > \/dev\/null$',
     '^sudo apt install bazel -y$',
+    './dotnet/update-deps.sh',
+    './scripts/pin-maven.sh',
     '^REPIN=1 bazel run @maven\/\/:pin$',
     '^bazel run -- @pnpm\/\/:pnpm install --dir \$PWD --lockfile-only$',
     '^CARGO_BAZEL_REPIN=true bazel sync --only=crates$',
