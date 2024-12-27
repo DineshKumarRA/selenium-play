@@ -82,6 +82,8 @@ jobs:
     steps:
       - name: Checkout source tree
         uses: actions/checkout@v4
+      - name: Print
+        run: echo ${github.head_ref}
       - name: Pull latest changes
         if: contains(github.head_ref, 'renovate/')
         run: git pull
