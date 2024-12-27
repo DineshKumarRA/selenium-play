@@ -49,7 +49,7 @@ jobs:
   check-format:
     needs: pin
     name: Check format
-    if: github.repository_owner == 'DineshKumarRA' && pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'DineshKumarRA' && needs.pin.steps.git.outputs.commit == 'false'
     uses: ./.github/workflows/bazel.yml
     with:
       name: Check format script run
@@ -60,7 +60,7 @@ jobs:
   test:
     name: Test
     needs: pin
-    if: github.repository_owner == 'seleniumhq' && pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'seleniumhq' && needs.pin.steps.git.outputs.commit == 'false'
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
@@ -71,5 +71,5 @@ jobs:
   ci-gh:
     name: CI - GitHub
     needs: pin
-    if: github.repository_owner == 'seleniumhq' && pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'seleniumhq' && needs.pin.steps.git.outputs.commit == 'false'
     uses: ./.github/workflows/ci.yml
