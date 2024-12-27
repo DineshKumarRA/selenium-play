@@ -85,9 +85,9 @@ jobs:
       - name: Print
         run: ${{ github.head_ref }}
       - name: Print branch name
-        run: ${GITHUB_REF#refs/heads/}
+        run: GITHUB_REF#refs/heads
       - name: Pull latest changes
-        if: startsWith(${{ github.head_ref }}, 'renovate/') == true || startsWith(${GITHUB_REF#refs/heads/}, 'renovate/') == true
+        if: startsWith(${{ github.head_ref }}, 'renovate/') == true || startsWith(GITHUB_REF#refs/heads/, 'renovate/') == true
         run: git pull
       - name: Free space
         if: inputs.os != 'windows'
