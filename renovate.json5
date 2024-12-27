@@ -24,96 +24,38 @@
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "REPIN=1 bazel run @maven//:pin"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "bazel-module" ],
       "matchPackageNames": [ "rules_java", "rules_jvm_external", "contrib_rules_jvm" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "REPIN=1 bazel run @maven//:pin"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
-      "labels": [ "dependencies", "c-java" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "REPIN=1 bazel run @maven//:pin"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ],
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-nodejs" ]
     },
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ],
-      "postUpgradeTasks": {
-        "commands": [
-          'apt-get update',
-          'apt-get install openjdk-11-jdk -y',
-          'apt-get install curl gnupg -y',
-          'curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel-archive-keyring.gpg',
-          'mv bazel-archive-keyring.gpg /usr/share/keyrings/',
-          'echo "deb [signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list > /dev/null',
-          'apt-get update',
-          'apt-get install bazel -y',
-          'bazel run //py:requirements.update'
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchPackageNames": [ "rules_python" ],
       "commitMessagePrefix": "[py]",
-      "labels": [ "dependencies", "c-py" ],
-      "postUpgradeTasks": {
-        "commands": [
-          'apt-get update',
-          'apt-get install openjdk-11-jdk -y',
-          'apt-get install curl gnupg -y',
-          'curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel-archive-keyring.gpg',
-          'mv bazel-archive-keyring.gpg /usr/share/keyrings/',
-          'echo "deb [signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list > /dev/null',
-          'apt-get update',
-          'apt-get install bazel -y',
-          'bazel run //py:requirements.update'
-        ],
-        "fileFilters": ["**/**"]
-      }
+      "labels": [ "dependencies", "c-py" ]
     },
     {
       "matchManagers": [ "bundler", "ruby-version" ],
