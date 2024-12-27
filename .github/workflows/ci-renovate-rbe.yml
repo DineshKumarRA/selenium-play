@@ -43,7 +43,7 @@ jobs:
         if: steps.git.outputs.commit == 'true'
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.RENOVATE_TOKEN }}
+          github_token: ${{ secrets.SELENIUM_CI_TOKEN }}
           branch: ${{ github.ref }}
 
   check-format:
