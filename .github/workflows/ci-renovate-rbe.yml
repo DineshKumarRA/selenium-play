@@ -1,10 +1,6 @@
 name: CI - Renovate - RBE
 
 on:
-  push:
-    branches:
-      - renovate/*
-  workflow_dispatch:
   workflow_run:
     workflows: [ "CI - Renovate" ]
     types:
