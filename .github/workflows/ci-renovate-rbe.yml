@@ -1,6 +1,8 @@
 name: CI - Renovate - RBE
 
 on:
+  workflow_dispatch:
+  workflow_call:
   workflow_run:
     workflows: [ "CI - Renovate" ]
     types:
@@ -15,7 +17,7 @@ jobs:
 
   check-format:
     name: Check format
-    if: github.repository_owner == 'DineshKumarRA' && needs.ci-renovate.pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'DineshKumarRA'
     uses: ./.github/workflows/bazel.yml
     with:
       name: Check format script run
@@ -25,7 +27,7 @@ jobs:
 
   test:
     name: Test
-    if: github.repository_owner == 'seleniumhq' && needs.ci-renovate.pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'seleniumhq'
     uses: ./.github/workflows/bazel.yml
     with:
       name: All RBE tests
@@ -34,5 +36,5 @@ jobs:
       run: ./scripts/github-actions/ci-build.sh
 
   ci-gh:
-    if: github.repository_owner == 'seleniumhq' && needs.ci-renovate.pin.steps.git.outputs.commit == 'false'
+    if: github.repository_owner == 'seleniumhq'
     uses: ./.github/workflows/ci.yml
