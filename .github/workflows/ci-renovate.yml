@@ -1,0 +1,47 @@
+name: CI - Renovate
+
+on:
+  push:
+    branches:
+      - renovate/*
+  workflow_dispatch:
+
+jobs:
+  pin:
+    runs-on: ubuntu-latest
+    if: github.repository_owner == 'DineshKumarRA'
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: java - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[java]')
+        run: RULES_JVM_EXTERNAL_REPIN=1 bazel run @maven//:pin
+      - name: rust - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[rust]')
+        run: CARGO_BAZEL_REPIN=true bazel sync --only=crates
+      - name: js - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[js]')
+        run: bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only
+      - name: dotnet - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[dotnet]')
+        run: ./dotnet/update-deps.sh
+      - name: py - repin dependencies
+        if: contains(join(github.event.commits.*.message), '[py]')
+        run: bazel run //py:requirements.update
+      - name: Commit files
+        id: git
+        run: |
+          export CHANGES=$(git status -s)
+          if [ -n "$CHANGES" ]; then
+            git config --local user.email "bot@renovateapp.com"
+            git config --local user.name "Renovate Bot"
+            git add .
+            git commit -m 'Repin dependencies'
+            echo "::set-output name=commit::true"
+          fi
+      - name: Push changes
+        if: steps.git.outputs.commit == 'true'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
