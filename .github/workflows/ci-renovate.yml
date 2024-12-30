@@ -33,8 +33,8 @@ jobs:
         run: |
           export CHANGES=$(git status -s)
           if [ -n "$CHANGES" ]; then
-            git config --local user.email "bot@renovateapp.com"
-            git config --local user.name "Renovate Bot"
+            git config --local user.email "dinesh.asok@gmail.com"
+            git config --local user.name "DineshKumarRA"
             git add .
             git commit -m 'Repin dependencies'
             echo "::set-output name=commit::true"
