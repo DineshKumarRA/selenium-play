@@ -71,10 +71,7 @@
     {
       "matchDatasources": ["crate"],
       "matchManagers": ["cargo"],
-      "matchDepTypes": [
-        "dependencies",
-        "dev-dependencies"
-      ],
+      "rangeStrategy": "bump",
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
