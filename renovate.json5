@@ -43,6 +43,11 @@
       "labels": [ "dependencies", "c-nodejs" ]
     },
     {
+      "matchDepTypes": [ "devDependencies" ],
+      "commitMessagePrefix": "[js]",
+      "labels": [ "dependencies", "c-nodejs" ]
+    },
+    {
       "matchPackageNames": [ "aspect_rules_js", "aspect_rules_ts", "rules_nodejs" ],
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
@@ -68,7 +73,7 @@
       "labels": [ "dependencies", "c-rb" ]
     },
     {
-      "matchManagers": [ "cargo" ],
+      "matchDatasources": [ "cargo" ],
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
