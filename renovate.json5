@@ -69,7 +69,6 @@
       "labels": [ "dependencies", "c-rb" ]
     },
     {
-      "matchDatasources": ["crate"],
       "matchManagers": ["cargo"],
       "rangeStrategy": "bump",
       "commitMessagePrefix": "[rust]",
