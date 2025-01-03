@@ -38,12 +38,8 @@
       "labels": [ "dependencies", "c-java" ]
     },
     {
-      "matchDepTypes": [ "devDependencies" ],
-      "commitMessagePrefix": "[js]",
-      "labels": [ "dependencies", "c-nodejs" ]
-    },
-    {
       "matchManagers": [ "npm" ],
+      "rangeStrategy": "bump",
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
