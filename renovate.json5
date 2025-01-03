@@ -38,12 +38,12 @@
       "labels": [ "dependencies", "c-java" ]
     },
     {
-      "matchManagers": [ "npm" ],
+      "matchDepTypes": [ "devDependencies" ],
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
     {
-      "matchDepTypes": [ "devDependencies" ],
+      "matchManagers": [ "npm" ],
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
@@ -73,7 +73,7 @@
       "labels": [ "dependencies", "c-rb" ]
     },
     {
-      "matchDatasources": [ "cargo" ],
+      "matchDatasources": [ "crate" ],
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
