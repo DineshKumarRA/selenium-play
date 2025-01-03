@@ -69,7 +69,12 @@
       "labels": [ "dependencies", "c-rb" ]
     },
     {
-      "matchDatasources": [ "crate" ],
+      "matchDatasources": ["crate"],
+      "matchManagers": ["cargo"],
+      "matchDepTypes": [
+        "dependencies",
+        "dev-dependencies"
+      ]
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
