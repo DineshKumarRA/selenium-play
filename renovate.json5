@@ -39,7 +39,7 @@
     },
     {
       "matchManagers": [ "npm" ],
-      "rangeStrategy": "pin",
+      "rangeStrategy": "bump",
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
