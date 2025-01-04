@@ -39,7 +39,7 @@
     },
     {
       "matchManagers": [ "npm" ],
-      "rangeStrategy": "bump",
+      "rangeStrategy": "replace",
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
@@ -70,7 +70,7 @@
     },
     {
       "matchManagers": ["cargo"],
-      "rangeStrategy": "bump",
+      "rangeStrategy": "replace",
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
