@@ -39,7 +39,7 @@
     },
     {
       "matchManagers": [ "npm" ],
-      "rangeStrategy": "replace",
+      "rangeStrategy": "update-lockfile",
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
@@ -70,7 +70,7 @@
     },
     {
       "matchManagers": ["cargo"],
-      "rangeStrategy": "replace",
+      "rangeStrategy": "update-lockfile",
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
