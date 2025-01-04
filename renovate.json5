@@ -24,6 +24,12 @@
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
+      "postUpgradeTasks": {
+        "commands": [
+          "REPIN=1 bazel run @maven//:pin"
+        ],
+        "fileFilters": ["**/**"]
+      },
       "labels": [ "dependencies", "c-java" ]
     },
     {
@@ -35,12 +41,24 @@
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
+      "postUpgradeTasks": {
+        "commands": [
+          "REPIN=1 bazel run @maven//:pin"
+        ],
+        "fileFilters": ["**/**"]
+      },
       "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "npm" ],
       "rangeStrategy": "bump",
       "commitMessagePrefix": "[js]",
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
+        ],
+        "fileFilters": ["**/**"]
+      },
       "labels": [ "dependencies", "c-nodejs" ]
     },
     {
@@ -51,6 +69,12 @@
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
+      "postUpgradeTasks": {
+        "commands": [
+          "bazel run //py:requirements.update"
+        ],
+        "fileFilters": ["**/**"]
+      },
       "labels": [ "dependencies", "c-py" ]
     },
     {
@@ -72,6 +96,12 @@
       "matchManagers": ["cargo"],
       "rangeStrategy": "bump",
       "commitMessagePrefix": "[rust]",
+      "postUpgradeTasks": {
+        "commands": [
+          "CARGO_BAZEL_REPIN=true bazel sync --only=crates"
+        ],
+        "fileFilters": ["**/**"]
+      },
       "labels": [ "dependencies", "c-rust" ]
     },
     {
