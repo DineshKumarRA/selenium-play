@@ -24,12 +24,6 @@
       "matchDatasources": ["maven"],
       "versioning": "maven",
       "commitMessagePrefix": "[java]",
-      "postUpgradeTasks": {
-        "commands": [
-          "REPIN=1 bazel run @maven//:pin"
-        ],
-        "fileFilters": ["**/**"]
-      },
       "labels": [ "dependencies", "c-java" ]
     },
     {
@@ -41,24 +35,12 @@
     {
       "matchManagers": [ "maven" ],
       "commitMessagePrefix": "[java]",
-      "postUpgradeTasks": {
-        "commands": [
-          "REPIN=1 bazel run @maven//:pin"
-        ],
-        "fileFilters": ["**/**"]
-      },
       "labels": [ "dependencies", "c-java" ]
     },
     {
       "matchManagers": [ "npm" ],
       "rangeStrategy": "bump",
       "commitMessagePrefix": "[js]",
-      "postUpgradeTasks": {
-        "commands": [
-          "bazel run -- @pnpm//:pnpm install --dir $PWD --lockfile-only"
-        ],
-        "fileFilters": ["**/**"]
-      },
       "labels": [ "dependencies", "c-nodejs" ]
     },
     {
@@ -69,20 +51,6 @@
     {
       "matchManagers": [ "pip_requirements", "pip_setup" ],
       "commitMessagePrefix": "[py]",
-      "postUpgradeTasks": {
-        "commands": [
-          'sudo apt update',
-          'sudo apt install openjdk-11-jdk -y',
-          'sudo apt install curl gnupg -y',
-          'curl -fsSL https://bazel.build/bazel-release.pub.gpg | gpg --dearmor > bazel-archive-keyring.gpg',
-          'mv bazel-archive-keyring.gpg /usr/share/keyrings/',
-          'echo "deb [signed-by=/usr/share/keyrings/bazel-archive-keyring.gpg] https://storage.googleapis.com/bazel-apt stable jdk1.8" | sudo tee /etc/apt/sources.list.d/bazel.list > /dev/null',
-          'sudo apt update',
-          'sudo apt install bazel -y',
-          'bazel run //py:requirements.update'
-        ],
-        "fileFilters": ["**/**"]
-      },
       "labels": [ "dependencies", "c-py" ]
     },
     {
@@ -104,18 +72,17 @@
       "matchManagers": ["cargo"],
       "rangeStrategy": "bump",
       "commitMessagePrefix": "[rust]",
-      "postUpgradeTasks": {
-        "commands": [
-          "CARGO_BAZEL_REPIN=true bazel sync --only=crates"
-        ],
-        "fileFilters": ["**/**"]
-      },
       "labels": [ "dependencies", "c-rust" ]
     },
     {
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "commitMessagePrefix": "[ci]",
+      "labels": [ "dependencies", "c-build" ]
     }
   ],
   "prConcurrentLimit": 10
