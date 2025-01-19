@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [ "config:recommended" ],
+  "extends": ["config:recommended"],
   "packageRules": [
     {
       "matchManagers": [ "bazel", "bazel-module", "bazelisk" ],
@@ -39,7 +39,7 @@
     },
     {
       "matchManagers": [ "npm" ],
-      "rangeStrategy": "update-lockfile",
+      "rangeStrategy": "bump",
       "commitMessagePrefix": "[js]",
       "labels": [ "dependencies", "c-nodejs" ]
     },
@@ -69,8 +69,8 @@
       "labels": [ "dependencies", "c-rb" ]
     },
     {
-      "matchManagers": ["cargo"],
-      "rangeStrategy": "update-lockfile",
+      "matchManagers": [ "cargo" ],
+      "rangeStrategy": "bump",
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
     },
@@ -78,11 +78,6 @@
       "matchPackageNames": [ "rules_cc" ],
       "commitMessagePrefix": "[rust]",
       "labels": [ "dependencies", "c-rust" ]
-    },
-    {
-      "matchManagers": ["github-actions"],
-      "commitMessagePrefix": "[ci]",
-      "labels": [ "dependencies", "c-build" ]
     }
   ],
   "prConcurrentLimit": 10
