@@ -13,7 +13,7 @@ jobs:
       artifact-name: pinned-browsers
 
   pull-request:
-    if: github.repository_owner == 'seleniumhq'
+    if: github.repository_owner == 'DineshKumarRA'
     runs-on: ubuntu-latest
     needs: update
     steps:

@@ -571,6 +571,10 @@ impl SeleniumManager for FirefoxManager {
             }
         } else {
             // Linux
+            self.get_logger().info(format!(
+                        "Using Firefox endpoints to find out latest stable {} version {}",
+                        browser_version, major_browser_version
+                    ));
             artifact_name = "firefox-";
             if major_browser_version < 135 {
                 artifact_extension = "tar.bz2";
