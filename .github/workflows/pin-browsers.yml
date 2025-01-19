@@ -36,7 +36,7 @@ jobs:
         if: env.CHANGES_FOUND == 'true'
         uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.SELENIUM_CI_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           add-paths: common/repositories.bzl
           commit-message: "Update pinned browser versions"
           committer: Selenium CI Bot <selenium-ci@users.noreply.github.com>
