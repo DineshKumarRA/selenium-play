@@ -458,9 +458,9 @@ pygments==2.17.2 \
     # via
     #   readme-renderer
     #   rich
-pyopenssl==22.0.0 \
-    --hash=sha256:660b1b1425aac4a1bea1d94168a85d99f0b3144c869dd4390d27629d0087f1bf \
-    --hash=sha256:ea252b38c87425b64116f808355e8da644ef9b07e429398bfece610f893ee2e0
+pyOpenSSL==22.1.0 \
+    --hash=sha256:7a83b7b272dd595222d672f5ce29aa030f1fb837630ef229f62e72e395ce8968 \
+    --hash=sha256:b28437c9773bb6c6958628cf9c3bebe585de661dba6f63df17111966363dd15e
     # via -r py/requirements.txt
 pyparsing==3.1.2 \
     --hash=sha256:a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad \
